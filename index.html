@@ -62,7 +62,7 @@
 				flex-direction: row;
 				flex-flow: row wrap;
 			}
-			#photo-div {
+			.photo-div {
 				position: relative;
 				flex: 1 1 30%;
 				background-color: none;
@@ -83,18 +83,21 @@
 				opacity: 1;
 			}
 			#like { /* top right */
+				display: none;
 				font-size: 35px;
 				top: 43.85%;
 				left: 46%;
 				transform: translate(-50%);
 			}
 			#download { /* bottom right */
+				display: none;
 				font-size: 40px;
 				top: 43%;
 				left: 53%;
 				transform: translate(-50%);
 			}
 			#photographer-name {
+				display: none;
 				opacity: 1;
 				z-index: 3;
 				font-size: 16px;
@@ -146,11 +149,21 @@
 					return photo
 				});
 
+				//function that generates a unique id
+				var globalCountArr = [];
+				var generateId = function(){
+					var str = `photo-${globalCountArr.length}`;
+					return str
+				}
+
+				//displays unique photos from search
 				photoFeed.innerHTML = '';
 				photoData.forEach(function(photo) {
-					console.log(photo);
+					var i = 0;
+					globalCountArr.push(`${i++}`);
 					var photoDiv = document.createElement('div');
-					photoDiv.id = 'photo-div';
+					photoDiv.classList.add('photo-div');
+					photoDiv.id = `${generateId()}`;
 					photoDiv.innerHTML = `
 						<img class="pSize" src="${photo.src.portrait}">
 							<a target="_blank" href="${photo.photographer_url}"><ion-icon id="like" name="heart-outline"></ion-icon></a>
@@ -159,8 +172,19 @@
 					`;
 					photoFeed.appendChild(photoDiv)
 				});
+
+				//display icon, h4, download
+				var photoDiv = document.getElementById('photo-div');
+				// var likeIcon = document.querySelector
+				photoDiv.addEventListener('click', function(e){
+					event.target.style.border = '2px solid red';
+					console.log(e.currentTarget);
+					console.log(e);
+					console.log(photoFeed.length);
+				});
 			}
 		};
+
 		var searchQuery = document.querySelector('#search-bar').value;
 		xhttp.open("GET", `https://api.pexels.com/v1/search?query=${searchQuery}`, true);
 		xhttp.setRequestHeader('Authorization', '563492ad6f91700001000001fee5f61edff643339f6063a86c85c706');
