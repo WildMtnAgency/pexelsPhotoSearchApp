@@ -19,7 +19,7 @@
 			}
 			body {
 				background-color: #000;
-				font-family: 'Bitter', serif;
+				font-family:Arial, Helvetica, sans-serif;
 				font-size: 14px;
 				color: white;
 			}
@@ -52,6 +52,7 @@
 				height: 40px;
 			}
 			#search-bar::placeholder {
+				font-family: 'Bitter', serif;
 				font-size: 16px;
 				color: #fff;
 				padding-left: 8px;
@@ -61,12 +62,62 @@
 				flex-direction: row;
 				flex-flow: row wrap;
 			}
-			.photo-div {
+			#photo-div {
+				position: relative;
 				flex: 1 1 30%;
+				background-color: none;
+				cursor: pointer;
 			}
 			.pSize {
 				width: 99%;
+				z-index: 1;
 			}
+			#like,
+			#download {
+				z-index: 3;
+				position: absolute;
+				color: white;
+				text-decoration: none;
+				border: none;
+				border-radius: 5px;
+				opacity: 1;
+			}
+			#like { /* top right */
+				font-size: 35px;
+				top: 43.85%;
+				left: 46%;
+				transform: translate(-50%);
+			}
+			#download { /* bottom right */
+				font-size: 40px;
+				top: 43%;
+				left: 53%;
+				transform: translate(-50%);
+			}
+			#photographer-name {
+				opacity: 1;
+				z-index: 3;
+				font-size: 16px;
+				color: white;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%);
+			}
+			/* HOVER FEATURE */
+			#photo-div:hover {
+				background-color:rgb(56, 56, 56);
+				opacity: 0.75;
+			}
+			/* #like:hover {
+				color: white; opacity: 1;
+			}
+			#download:hover {
+				color: white; opacity: 1;
+			}
+			#photographer-name:hover {
+				opacity: 1;
+			} */
 		</style>
 	</head>
 <body>
@@ -81,7 +132,6 @@
 		</form>
 	</header>
 	<div id="photo-feed"></div>
-		
 <script>
 	var photoFeed = document.getElementById('photo-feed');
 	var searchForm = document.getElementById('search-form');
@@ -98,10 +148,14 @@
 
 				photoFeed.innerHTML = '';
 				photoData.forEach(function(photo) {
+					console.log(photo);
 					var photoDiv = document.createElement('div');
-					photoDiv.classList.add('photo-div');
+					photoDiv.id = 'photo-div';
 					photoDiv.innerHTML = `
 						<img class="pSize" src="${photo.src.portrait}">
+							<a target="_blank" href="${photo.photographer_url}"><ion-icon id="like" name="heart-outline"></ion-icon></a>
+							<h4 id="photographer-name">${photo.photographer}</h4>
+							<a target="_blank" href="${photo.url}"><ion-icon id="download" name="download-outline"></ion-icon></a>
 					`;
 					photoFeed.appendChild(photoDiv)
 				});
@@ -114,5 +168,7 @@
 	});
 
 </script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
