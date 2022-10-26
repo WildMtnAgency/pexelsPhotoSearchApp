@@ -174,13 +174,11 @@
 				});
 
 				//display icon, h4, download
-				var photoDiv = document.getElementById('photo-div');
+				var photoDiv = document.querySelector('.photo-div');
 				// var likeIcon = document.querySelector
 				photoDiv.addEventListener('click', function(e){
-					event.target.style.border = '2px solid red';
-					console.log(e.currentTarget);
 					console.log(e);
-					console.log(photoFeed.length);
+					console.log(`node name is ${e.target.id}`)
 				});
 			}
 		};
