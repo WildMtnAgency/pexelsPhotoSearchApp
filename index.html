@@ -8,66 +8,7 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@1,300&display=swap" rel="stylesheet">
-
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-			}
-			body {
-				background-color: #000;
-				font-family: 'Bitter', serif;
-				font-size: 14px;
-				color: white;
-			}
-			header {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				margin-bottom: 5px;
-				background-image: url("https://images.pexels.com/photos/13521828/pexels-photo-13521828.jpeg?auto=compress&bri=5&cs=tinysrgb&fit=crop&h=500&w=1400&dpr=1");
-				background-repeat: no-repeat;
-				background-size: cover;
-				width: 100%;
-				height: 350px;
-			}
-			#pexels-logo {
-				margin-right: 5%;
-				width: 200px;
-			}
-			#logo {
-				width: 100%;
-			}
-			#search-bar {
-				background-color:#34b494;
-				font-family: 'Bitter', serif;
-				font-size: 16px;
-				color: #fff;
-				border: 1.5px solid #fff;
-				border-radius: 5px;
-				width: 250px;
-				height: 40px;
-			}
-			#search-bar::placeholder {
-				font-size: 16px;
-				color: #fff;
-				padding-left: 8px;
-			}
-			#photo-feed {
-				display: flex;
-				flex-direction: row;
-				flex-flow: row wrap;
-			}
-			.photo-div {
-				flex: 1 1 30%;
-			}
-			.pSize {
-				width: 99%;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 <body>
 	<header>
@@ -82,37 +23,6 @@
 	</header>
 	<div id="photo-feed"></div>
 		
-<script>
-	var photoFeed = document.getElementById('photo-feed');
-	var searchForm = document.getElementById('search-form');
-	searchForm.addEventListener('submit', function(e){
-		e.preventDefault();
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				// Typical action to be performed when the document is ready:
-				var res = JSON.parse(xhttp.responseText);
-				var photoData = res.photos.map(function(photo){
-					return photo
-				});
-
-				photoFeed.innerHTML = '';
-				photoData.forEach(function(photo) {
-					var photoDiv = document.createElement('div');
-					photoDiv.classList.add('photo-div');
-					photoDiv.innerHTML = `
-						<img class="pSize" src="${photo.src.portrait}">
-					`;
-					photoFeed.appendChild(photoDiv)
-				});
-			}
-		};
-		var searchQuery = document.querySelector('#search-bar').value;
-		xhttp.open("GET", `https://api.pexels.com/v1/search?query=${searchQuery}`, true);
-		xhttp.setRequestHeader('Authorization', '563492ad6f91700001000001fee5f61edff643339f6063a86c85c706');
-		xhttp.send();
-	});
-
-</script>
+<script src="pexels-api.js"></script>
 </body>
 </html>
