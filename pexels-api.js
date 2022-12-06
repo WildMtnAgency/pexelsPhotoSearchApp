@@ -11,9 +11,9 @@ searchForm.addEventListener('submit', function(e){
 			console.log(res);
 			//selects photos object from res and returns each photo | 0-14 | total 15
 			var photoData = res.photos.map(function(photo){
-				console.log(photo.id)
 				return photo
 			});
+			console.log(photoData.length - 1)
 
 			photoFeed.innerHTML = '';
 			photoData.forEach(function(photo) {
@@ -21,6 +21,11 @@ searchForm.addEventListener('submit', function(e){
 				photoDiv.classList.add('photo-div');
 				photoDiv.innerHTML = `
 					<img class="pSize" src="${photo.src.portrait}">
+					<div class="hide">
+						<p id="photo-title">${photo.alt}</p>
+						<p id="photographer-name">${photo.photographer}</p>
+						<a id="photo-link" href="${photo.url}" target="_blank"><ion-icon name="open-outline"></ion-icon></a>
+					</div>
 				`;
 				photoFeed.appendChild(photoDiv)
 			});

@@ -54,7 +54,17 @@ input:focus {
 }
 .photo-div {
 	flex: 1 1 30%;
+	position: relative;
 }
 .pSize {
 	width: 99%;
+}
+/* PHOTO FEATURE */
+.hide {
+	display: none;
+}
+#photo-title {
+	position: absolute;
+	top: 2%;
+	left: 3%;
 }
