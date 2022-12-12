@@ -8,3 +8,6 @@
 			//console.log photos array and length
 			//do math for each photo-div to assign each photo object an id that corresponds to its position in photo-div
 
+//for each photo div add data-photoId="#" to individually identify each photo-div
+	//use a foreach method to add this 
+

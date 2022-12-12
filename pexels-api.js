@@ -8,24 +8,30 @@ searchForm.addEventListener('submit', function(e){
 			// Typical action to be performed when the document is ready:
 			var res = JSON.parse(xhttp.responseText);
 			//JSON parses response text from api
-			console.log(res);
+			// console.log(res);
 			//selects photos object from res and returns each photo | 0-14 | total 15
 			var photoData = res.photos.map(function(photo){
 				return photo
 			});
-			console.log(photoData.length - 1)
+			// console.log(photoData.length - 1)
+
+			//create a function that assigns its index length value to the data-photo-id="#" attribute
+
+			//for each photo-div set a data-* attribute with a number value to uniquely identify each photo-div
 
 			photoFeed.innerHTML = '';
+			var i = 0;
 			photoData.forEach(function(photo) {
 				var photoDiv = document.createElement('div');
 				photoDiv.classList.add('photo-div');
+				photoDiv.setAttribute('data-photo-id', i++)
 				photoDiv.innerHTML = `
-					<img class="pSize" src="${photo.src.portrait}">
-					<div class="hide">
-						<p id="photo-title">${photo.alt}</p>
-						<p id="photographer-name">${photo.photographer}</p>
-						<a id="photo-link" href="${photo.url}" target="_blank"><ion-icon name="open-outline"></ion-icon></a>
-					</div>
+						<img class="pSize" src="${photo.src.portrait}">
+						<div class="hide">
+							<p id="photo-title">${photo.alt}</p>
+							<p id="photographer-name">${photo.photographer}</p>
+							<a id="photo-link" href="${photo.url}" target="_blank"><ion-icon name="open-outline"></ion-icon></a>
+						</div>
 				`;
 				photoFeed.appendChild(photoDiv)
 			});
