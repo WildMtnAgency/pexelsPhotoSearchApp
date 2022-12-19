@@ -5,9 +5,12 @@
 	//photo-div is a classname = not individually identified. 
 		//create a unique photo id using array from res json parsed object (0-14)
 		//add to photo-div a unique id
-			//console.log photos array and length
-			//do math for each photo-div to assign each photo object an id that corresponds to its position in photo-div
+		//for each photo div add data-photoId="#" to individually identify each photo-div
 
-//for each photo div add data-photoId="#" to individually identify each photo-div
-	//use a foreach method to add this 
+//next challenge
+	//now that i can uniquely identify each photo-div by id
+	//add an event listener to each photo-div 
+		//when uniqueId === mouse hover, then show photo features
 
+//hover feature
+	//i want to keep hide class hidden until mouse hover over each picture

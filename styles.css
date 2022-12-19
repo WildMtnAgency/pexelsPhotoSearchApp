@@ -2,6 +2,10 @@
 	margin: 0;
 	padding: 0;
 }
+button {
+	border: none;
+	color: white;
+}
 body {
 	background-color: #000;
 	font-family: Arial, Helvetica, sans-serif;
@@ -47,6 +51,16 @@ input:focus {
 	color: #fff;
 	padding-left: 3px;
 }
+#btn {
+	width: 40px;
+	height: 40px;
+	border: none;
+	border-radius: 5px;
+	background-color: #09c6a1;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
 #photo-feed {
 	display: flex;
 	flex-direction: row;
@@ -65,6 +79,22 @@ input:focus {
 }
 #photo-title {
 	position: absolute;
-	top: 2%;
-	left: 3%;
+	top: 3%;
+	left: 5%;
+}
+#photographer-name {
+	position: absolute;
+	top: 95%;
+	left: 5%;
+}
+#photo-link {
+	position: absolute;
+	top: 95%;
+	left: 93%;
+	cursor: pointer;
+}
+#icon {
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
 }
