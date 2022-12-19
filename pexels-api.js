@@ -15,36 +15,39 @@ searchForm.addEventListener('submit', function(e){
 			});
 
 			photoFeed.innerHTML = '';
-			var i = 0;
-			var j = 0;
+			// var photoCount = 0;
+			// var divCount = 0;
+			// var hideCount = 0;
 			photoData.forEach(function(photo) {
 				var photoDiv = document.createElement('div');
 				photoDiv.classList.add('photo-div');
-				photoDiv.id = `div-${j++}`;
+				// photoDiv.id = `div-${divCount++}`;
 				photoDiv.innerHTML = `
-						<img class="pSize" data-photo-id="${i++}" src="${photo.src.portrait}">
 						<div class="hide">
-							<p id="photo-title">${photo.alt}</p>
-							<p id="photographer-name">${photo.photographer}</p>
-							<a id="photo-link" href="${photo.url}" target="_blank"><ion-icon name="open-outline" id="icon"></ion-icon></a>
+							<p id="photo-title" alt="Photo description">${photo.alt}</p>
+							<p id="photographer-name" alt="Photographer name">${photo.photographer}</p>
+							<ion-icon name="open-outline" id="icon"><a id="photo-link" href="${photo.url}" alt="See more photos from photos" target="_blank"></a></ion-icon>
 						</div>
+						<img class="pSize" src="${photo.src.portrait}">
 				`;
 				photoFeed.appendChild(photoDiv);
-				// photoDiv.addEventListener('mouseover', function(e){
-				// 	// var el = document.getElementsByClassName('photo-div');
-				// 	// var hiddenEl = document.getElementsByClassName('hide');
+				
+				//show photo details
+				photoDiv.addEventListener('mouseover', function(e){
+					var target = e.path[1].childNodes[1];
+					console.log(e);
+					console.log(target);
+					target.classList.value = 'show';
+				});
+				
+				//hide photo details | changes photo-div class into hide, not nested element...
+				// photoDiv.addEventListener('mouseleave', function(e) {
+				// 	var target = e.path[1].childNodes[1];
 				// 	console.log(e);
-				// 	var currentTarget = e.currentTarget;
-				// 	if(currentTarget.classList == 'hide'){
-				// 		currentTarget.classList.remove('hide');
-				// 	}
+				// 	console.log(target);
+				// 	target.classList.value = 'hide';
 				// });
-				// photoDiv.addEventListener('mouseleave', function(e){
-				// 	var currentTarget = e.currentTarget;
-				// 	if(currentTarget.classList !== 'hide'){
-				// 		currentTarget.classList.add('hide');
-				// 	}
-				// });
+
 			});
 		}
 	};

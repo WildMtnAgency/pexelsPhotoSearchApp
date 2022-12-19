@@ -37,7 +37,7 @@ header {
 h3 { font-size: 22px; font-family: 'Comfortaa', cursive, sans-serif; }
 #topper h3 {
 	margin-top: 25px;
-	margin-right: 20px;
+	margin-right: 25px;
 }
 #search-bar {
 	background-color:#fff;
@@ -50,7 +50,8 @@ h3 { font-size: 22px; font-family: 'Comfortaa', cursive, sans-serif; }
 	height: 50px;
 }
 #search-bar:focus {
-	border: 2.5px solid #09c6a1;
+	border: 2.5px solid #12af90;
+	color: rgb(135, 135, 135);
 }
 #search-bar::placeholder {
 	font-size: 16px;
@@ -71,6 +72,9 @@ input:focus {
 	font-size: 16px;
 	cursor: pointer;
 }
+#btn:hover {
+	background-color: #12af90;
+}
 #search-icon {
 	font-size: 18px;
 	font-weight: 300;
@@ -87,6 +91,7 @@ input:focus {
 }
 .pSize {
 	width: 99%;
+	z-index: 1;
 }
 .pSize:hover {
 	background-color:rgb(74, 74, 74);
@@ -94,11 +99,19 @@ input:focus {
 }
 /* PHOTO FEATURE */
 .hide {
+	display: none;
+}
+.show {
 	display: block;
 }
 .photo-div p {
 	font-size: 16px;
 	color: white;
+}
+#photo-title,
+#photographer-name,
+#icon {
+	z-index: 4;
 }
 #photo-title {
 	position: absolute;

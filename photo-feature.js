@@ -13,4 +13,16 @@
 		//when uniqueId === mouse hover, then show photo features
 
 //hover feature
-	//i want to keep hide class hidden until mouse hover over each picture
+//create an event listener on photo-div with a mouseover event
+	//starting point add an opacity of 0.85 on mouseover event
+
+
+	//keep hide class hidden until mouse hover over each photo div
+		//use the photo-div unique id to identify a truthy when mouse hovers over photo div
+		//on truthy (mouseover & unique id), show hide class
+
+//to do later
+	//1. hide or do not show photographer === 'Pixabay'
+	//2. capitalize photographer name
+
+	//<a id="photo-link" href="${photo.url}" alt="See more photos from photos" target="_blank"></a>
