@@ -33,20 +33,20 @@ searchForm.addEventListener('submit', function(e){
 				photoFeed.appendChild(photoDiv);
 				
 				//show photo details
-				photoDiv.addEventListener('mouseover', function(e){
-					var target = e.path[1].childNodes[1];
-					console.log(e);
-					console.log(target);
+				photoDiv.addEventListener('mouseenter', function(e){
+					var target = e.target.childNodes[1];
+					// console.log(e);
+					// console.log(target);
 					target.classList.value = 'show';
 				});
 				
-				//hide photo details | changes photo-div class into hide, not nested element...
-				// photoDiv.addEventListener('mouseleave', function(e) {
-				// 	var target = e.path[1].childNodes[1];
-				// 	console.log(e);
-				// 	console.log(target);
-				// 	target.classList.value = 'hide';
-				// });
+				//hide photo details | cannot use icon link...
+				photoDiv.addEventListener('mouseleave', function(e) {
+					var previousTarget = e.target.childNodes[1];
+					console.log(e);
+					console.log(previousTarget);
+					previousTarget.classList.value = 'hide';
+				});
 
 			});
 		}
