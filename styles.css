@@ -1,10 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap');
 * {
 	margin: 0;
 	padding: 0;
-}
-button {
-	border: none;
-	color: white;
 }
 body {
 	background-color: #000;
@@ -21,17 +18,26 @@ header {
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;
-	height: 350px;
+	height: 400px;
 }
-#pexels-logo {
-	margin-right: 5%;
-	width: 200px;
-}
-#logo {
+#topper {
+	display: flex;
+	justify-content: space-between;
+	background-color: black;
+	height: 80px;
 	width: 100%;
 }
-input:focus {
-	outline: none;
+#logo {
+	/* align-self: flex-start; */
+	width: 165px;
+	height: auto;
+	margin-left: 20%;
+	margin-top: 10px;
+}
+h3 { font-size: 22px; font-family: 'Comfortaa', cursive, sans-serif; }
+#topper h3 {
+	margin-top: 25px;
+	margin-right: 20px;
 }
 #search-bar {
 	background-color:#fff;
@@ -39,27 +45,35 @@ input:focus {
 	font-size: 16px;
 	color: #000;
 	border: 1.5px solid #fff;
-	border-radius: 5px;
-	width: 250px;
-	height: 40px;
+	border-radius: 10px;
+	width: 550px;
+	height: 50px;
 }
 #search-bar:focus {
 	border: 2.5px solid #09c6a1;
 }
 #search-bar::placeholder {
 	font-size: 16px;
-	color: #fff;
-	padding-left: 3px;
+	color: rgb(135, 135, 135);
+	padding-left: 12px;
+	font-family: 'Comfortaa', cursive, sans-serif;
+}
+input:focus {
+	outline: none;
 }
 #btn {
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 	border: none;
-	border-radius: 5px;
+	border-radius: 10px;
 	background-color: #09c6a1;
 	color: #fff;
 	font-size: 16px;
 	cursor: pointer;
+}
+#search-icon {
+	font-size: 18px;
+	font-weight: 300;
 }
 #photo-feed {
 	display: flex;
@@ -69,13 +83,22 @@ input:focus {
 .photo-div {
 	flex: 1 1 30%;
 	position: relative;
+	opacity: 1;
 }
 .pSize {
 	width: 99%;
 }
+.pSize:hover {
+	background-color:rgb(74, 74, 74);
+	opacity: 0.85;
+}
 /* PHOTO FEATURE */
 .hide {
-	display: none;
+	display: block;
+}
+.photo-div p {
+	font-size: 16px;
+	color: white;
 }
 #photo-title {
 	position: absolute;
@@ -87,13 +110,12 @@ input:focus {
 	top: 95%;
 	left: 5%;
 }
-#photo-link {
+#icon {
 	position: absolute;
 	top: 95%;
-	left: 93%;
+	left: 91.5%;
 	cursor: pointer;
-}
-#icon {
+	font-size: 20px;
 	color: #fff;
 	text-decoration: none;
 	cursor: pointer;

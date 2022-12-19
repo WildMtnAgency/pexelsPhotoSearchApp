@@ -10,15 +10,15 @@
 		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 <body>
+	<div id="topper">
+			<div><a href="https://www.pexels.com"><img id="logo" src="https://images.pexels.com/lib/api/pexels-white.png" /></a></div>
+			<h3>Photo API Powered by Pexels</h3>
+	</div>
 	<header>
-		<div id="pexels-logo">
-			<a href="https://www.pexels.com">
-				<img id="logo" src="https://images.pexels.com/lib/api/pexels-white.png" />
-			</a>
-		</div>
 		<form id="search-form">
-			<input id="search-bar" type="search" placeholder="Search">
-			<button id="btn" type="submit">Go!</button>
+			<label for="search-bar"></label>
+			<input id="search-bar" name="search-bar" type="search" placeholder="Search for pexel photos..." required>
+			<button id="btn" type="submit"><ion-icon #search-icon name="search-outline"></ion-icon></button>
 		</form>
 	</header>
 	<div id="photo-feed"></div>
