@@ -14,18 +14,25 @@ searchForm.addEventListener('submit', function(e){
 				return photo
 			});
 
+			//photographer name
+			var photographerNameFn = function(name){
+				if(name !== 'Pixabay'){
+					return name;
+				} else if(name === 'Pixabay'){
+					var newName = '';
+					return newName;
+				}
+			};
+
 			photoFeed.innerHTML = '';
-			// var photoCount = 0;
-			// var divCount = 0;
-			// var hideCount = 0;
 			photoData.forEach(function(photo) {
 				var photoDiv = document.createElement('div');
+				var photographer = `${photo.photographer}`;
 				photoDiv.classList.add('photo-div');
-				// photoDiv.id = `div-${divCount++}`;
 				photoDiv.innerHTML = `
 						<div class="hide">
 							<p id="photo-title" alt="Photo description">${photo.alt}</p>
-							<p id="photographer-name" alt="Photographer name">${photo.photographer}</p>
+							<p id="photographer-name" alt="Photographer name">${photographerNameFn(photographer)}</p>
 							<ion-icon name="open-outline" id="icon"><a id="photo-link" href="${photo.url}" alt="See more photos from photos" target="_blank"></a></ion-icon>
 						</div>
 						<img class="pSize" src="${photo.src.portrait}">
