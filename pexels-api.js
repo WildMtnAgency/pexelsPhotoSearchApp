@@ -14,14 +14,22 @@ searchForm.addEventListener('submit', function(e){
 				return photo
 			});
 
-			//photographer name
+			//no pixabay photographer name function
 			var photographerNameFn = function(name){
 				if(name !== 'Pixabay'){
 					return name;
 				} else if(name === 'Pixabay'){
-					var newName = '';
+					var newName = 'Pexels Stock Photo';
 					return newName;
+				} else {
+					return '';
 				}
+			};
+
+			//capitalize photographer name function
+			var capitalizeNameFn = function(name){
+				var arrName = name.split('');
+				console.log(arrName);
 			};
 
 			photoFeed.innerHTML = '';
@@ -50,8 +58,8 @@ searchForm.addEventListener('submit', function(e){
 				//hide photo details | cannot use icon link...
 				photoDiv.addEventListener('mouseleave', function(e) {
 					var previousTarget = e.target.childNodes[1];
-					console.log(e);
-					console.log(previousTarget);
+					// console.log(e);
+					// console.log(previousTarget);
 					previousTarget.classList.value = 'hide';
 				});
 

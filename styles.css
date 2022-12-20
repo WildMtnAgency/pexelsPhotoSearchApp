@@ -24,17 +24,15 @@ header {
 	display: flex;
 	justify-content: space-between;
 	background-color: black;
-	height: 80px;
+	height: 60px;
 	width: 100%;
 }
 #logo {
-	/* align-self: flex-start; */
-	width: 165px;
+	width: 120px;
 	height: auto;
-	margin-left: 20%;
 	margin-top: 10px;
 }
-h3 { font-size: 22px; font-family: 'Comfortaa', cursive, sans-serif; }
+h3 { font-size: 14px; font-family: 'Comfortaa', cursive, sans-serif; }
 #topper h3 {
 	margin-top: 25px;
 	margin-right: 25px;
@@ -46,8 +44,8 @@ h3 { font-size: 22px; font-family: 'Comfortaa', cursive, sans-serif; }
 	color: #000;
 	border: 1.5px solid #fff;
 	border-radius: 10px;
-	width: 550px;
-	height: 50px;
+	width: 150px;
+	height: 40px;
 }
 #search-bar:focus {
 	border: 2.5px solid #12af90;
@@ -132,4 +130,196 @@ input:focus {
 	color: #fff;
 	text-decoration: none;
 	cursor: pointer;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	header {
+		height: 200px;
+	}
+	#topper {
+		display: flex;
+		justify-content: space-between;
+		background-color: black;
+		height: 30px;
+		width: 100%;
+	}
+	#logo {
+		width: 65px;
+		height: auto;
+		margin-top: 3.5px;
+		margin-left: 3px;
+	}
+	h3 { font-size: 10px; font-weight: 500; font-family: 'Comfortaa', cursive, sans-serif; }
+	#topper h3 {
+		margin-top: 10px;
+		margin-right: 8px;
+	}
+	#search-bar {
+		width: 250px;
+		height: 30px;
+		border-radius: 3px;
+	}
+	#search-bar::placeholder {
+		font-size: 12px;
+	}
+	#btn {
+		border-radius: 3px;
+		width: 30px;
+		height: 31px;
+	}
+	#search-icon {
+		font-size: 10px;
+		font-weight: 100;
+	}
+	/* PHOTO FEATURE */
+	.photo-div p {
+		font-size: 10px;
+		color: white;
+		}
+		#photo-title {
+		position: absolute;
+		top: 6px;
+		left: 5px;
+		}
+		#photographer-name {
+		position: absolute;
+		top: 92%;
+		left: 5%;
+		}
+		#icon {
+		position: absolute;
+		top: 93%;
+		left: 90%;
+		font-size: 12px;
+		}
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	header {
+		height: 280px;
+	}
+	#topper {
+		display: flex;
+		justify-content: space-between;
+		background-color: black;
+		height: 40px;
+		width: 100%;
+	}
+	#logo {
+		width: 85px;
+		height: auto;
+		margin-top: 5px;
+		margin-left: 5px;
+	}
+	h3 { font-size: 14px; font-weight: 500; font-family: 'Comfortaa', cursive, sans-serif; }
+	#topper h3 {
+		margin-top: 13px;
+		margin-right: 10px;
+	}
+	#search-bar {
+		width: 350px;
+		height: 40px;
+		border-radius: 3px;
+	}
+	#search-bar::placeholder {
+		font-size: 14px;
+	}
+	#btn {
+		border-radius: 3px;
+		width: 40px;
+		height: 40.5px;
+	}
+	#search-icon {
+		font-size: 14px;
+		font-weight: 300;
+	}
+	/* PHOTO FEATURE */
+	.photo-div p {
+		font-size: 12px;
+		color: white;
+		}
+		#photo-title {
+		position: absolute;
+		top: 6px;
+		left: 5px;
+		}
+		#photographer-name {
+		position: absolute;
+		top: 93.5%;
+		left: 5px;
+		}
+		#icon {
+		position: absolute;
+		top: 94%;
+		left: 92%;
+		font-size: 13px;
+		font-weight: 300;
+		}
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	header {
+		height: 400px;
+	}
+	#topper {
+		display: flex;
+		justify-content: space-between;
+		background-color: black;
+		height: 60px;
+		width: 100%;
+	}
+	#logo {
+		width: 125px;
+		height: auto;
+		margin-top: 8px;
+		margin-left: 10px;
+	}
+	h3 { font-size: 18px; font-weight: 500; font-family: 'Comfortaa', cursive, sans-serif; }
+	#topper h3 {
+		margin-top: 20px;
+		margin-right: 15px;
+	}
+	#search-bar {
+		width: 400px;
+		height: 60px;
+		border-radius: 5px;
+	}
+	#search-bar::placeholder {
+		font-size: 16px;
+	}
+	#btn {
+		border-radius: 5px;
+		width: 60px;
+		height: 60.5px;
+	}
+	#search-icon {
+		font-size: 24px;
+	}
+	/* PHOTO FEATURE */
+	.photo-div p {
+		font-size: 12px;
+		color: white;
+		}
+		#photo-title {
+		position: absolute;
+		top: 2%;
+		left: 3.5%;
+		}
+		#photographer-name {
+		position: absolute;
+		top: 94%;
+		left: 3.5%;
+		}
+		#icon {
+		position: absolute;
+		top: 94.75%;
+		left: 92%;
+		font-size: 13px;
+		font-weight: 300;
+		}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
 }
