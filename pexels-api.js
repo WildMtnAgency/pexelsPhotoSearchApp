@@ -11,6 +11,8 @@ searchForm.addEventListener('submit', function(e){
 			// console.log(res);
 			//selects photos object from res and returns each photo | 0-14 | total 15
 			var photoData = res.photos.map(function(photo){
+				console.log(photo)
+
 				return photo
 			});
 
@@ -19,7 +21,7 @@ searchForm.addEventListener('submit', function(e){
 				if(name !== 'Pixabay'){
 					return name;
 				} else if(name === 'Pixabay'){
-					var newName = 'Pexels Stock Photo';
+					var newName = 'Pixabay Photo';
 					return newName;
 				} else {
 					return '';
@@ -27,10 +29,10 @@ searchForm.addEventListener('submit', function(e){
 			};
 
 			//capitalize photographer name function
-			var capitalizeNameFn = function(name){
-				var arrName = name.split('');
-				console.log(arrName);
-			};
+			// var capitalizeNameFn = function(name){
+			// 	var arrName = name.split('');
+			// 	console.log(arrName);
+			// };
 
 			photoFeed.innerHTML = '';
 			photoData.forEach(function(photo) {
@@ -40,8 +42,9 @@ searchForm.addEventListener('submit', function(e){
 				photoDiv.innerHTML = `
 						<div class="hide">
 							<p id="photo-title" alt="Photo description">${photo.alt}</p>
-							<p id="photographer-name" alt="Photographer name">${photographerNameFn(photographer)}</p>
-							<ion-icon name="open-outline" id="icon"><a id="photo-link" href="${photo.url}" alt="See more photos from photos" target="_blank"></a></ion-icon>
+							<a href="${photo.photographer_url}" target="_blank"><ion-icon id="like-icon" name="heart-outline"></ion-icon></a>
+							<a href="${photo.photographer_url}" target="_blank"><p id="photographer-name" alt="Photographer name">${photographerNameFn(photographer)}</p></a>
+							<a id="photo-link" href="${photo.url}" target="_blank" alt="See more photos from photos"><ion-icon name="open-outline" id="share-icon"></ion-icon></a>
 						</div>
 						<img class="pSize" src="${photo.src.portrait}">
 				`;

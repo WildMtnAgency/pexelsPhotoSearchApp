@@ -22,7 +22,6 @@
 		//on truthy (mouseover & unique id), show hide class
 
 //to do later
-	//1. hide or do not show photographer === 'Pixabay'
-	//2. capitalize photographer name
-
-	//<a id="photo-link" href="${photo.url}" alt="See more photos from photos" target="_blank"></a>
+	//1. hide or do not show photographer === 'Pixabay' -- DONE
+		// combine functions for capitalize and no pixabay name using large if statements in one single function
+	//2. capitalize photographer name 

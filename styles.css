@@ -108,28 +108,36 @@ input:focus {
 }
 #photo-title,
 #photographer-name,
-#icon {
+#like-icon,
+#share-icon {
 	z-index: 4;
 }
 #photo-title {
 	position: absolute;
 	top: 3%;
 	left: 5%;
+	width: 85%;
 }
 #photographer-name {
 	position: absolute;
 	top: 95%;
 	left: 5%;
 }
-#icon {
+#like-icon,
+#share-icon {
 	position: absolute;
-	top: 95%;
-	left: 91.5%;
 	cursor: pointer;
 	font-size: 20px;
 	color: #fff;
 	text-decoration: none;
 	cursor: pointer;
+	left: 91.5%;
+}
+#like-icon {
+ top: 3%;
+}
+#share-icon {
+	top: 95%;
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -186,11 +194,17 @@ input:focus {
 		top: 92%;
 		left: 5%;
 		}
-		#icon {
-		position: absolute;
-		top: 93%;
-		left: 90%;
-		font-size: 12px;
+		#like-icon,
+		#share-icon {
+			position: absolute;
+			font-size: 12px;
+			left: 90%;
+		}
+		#like-icon {
+			top: 6px;
+		}
+		#share-icon {
+			top: 93%;
 		}
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -248,12 +262,18 @@ input:focus {
 		top: 93.5%;
 		left: 5px;
 		}
-		#icon {
-		position: absolute;
-		top: 94%;
-		left: 92%;
-		font-size: 13px;
-		font-weight: 300;
+		#like-icon,
+		#share-icon {
+			position: absolute;
+			font-size: 13px;
+			font-weight: 300;
+			left: 92%;
+		}
+		#like-icon {
+			top: 6px;
+		}
+		#share-icon {
+			top: 94%;
 		}
 }
 /* Medium devices (landscape tablets, 768px and up) */
@@ -297,7 +317,7 @@ input:focus {
 	}
 	/* PHOTO FEATURE */
 	.photo-div p {
-		font-size: 12px;
+		font-size: 14px;
 		color: white;
 		}
 		#photo-title {
@@ -310,16 +330,89 @@ input:focus {
 		top: 94%;
 		left: 3.5%;
 		}
-		#icon {
-		position: absolute;
-		top: 94.75%;
-		left: 92%;
-		font-size: 13px;
-		font-weight: 300;
+		#like-icon,
+		#share-icon {
+			position: absolute;
+			font-size: 18px;
+			font-weight: 300;
+			left: 90.5%;
+		}
+		#like-icon {
+			top: 2%;
+		}
+		#share-icon {
+			top: 93.25%;
 		}
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-
+	header {
+		height: 450px;
+	}
+	#topper {
+		display: flex;
+		justify-content: space-between;
+		background-color: black;
+		height: 80px;
+		width: 100%;
+	}
+	#logo {
+		width: 180px;
+		height: auto;
+		margin-top: 8px;
+		margin-left: 10px;
+	}
+	h3 { font-size: 24px; font-weight: 500; font-family: 'Comfortaa', cursive, sans-serif; }
+	#topper h3 {
+		margin-top: 25px;
+		margin-right: 15px;
+	}
+	#search-bar {
+		width: 525px;
+		height: 65px;
+		border-radius: 5px;
+	}
+	#search-bar::placeholder {
+		padding-left: 5px;
+		font-size: 20px;
+	}
+	#btn {
+		border-radius: 5px;
+		width: 60px;
+		height: 60.5px;
+	}
+	#search-icon {
+		font-size: 30px;
+	}
+	/* PHOTO FEATURE */
+	.photo-div p {
+			font-size: 16.75px;
+			color: white;
+		}
+		#photo-title {
+			position: absolute;
+			top: 2%;
+			left: 3.5%;
+		}
+		#photographer-name {
+			position: absolute;
+			top: 94%;
+			left: 3.5%;
+		}
+		#like-icon,
+		#share-icon {
+			cursor: pointer;
+			color: white;
+			position: absolute;
+			font-size: 20px;
+			font-weight: 300;
+			left: 90.5%;
+		}
+		#like-icon {
+			top: 2%;
+		}
+		#share-icon {
+			top: 94.25%;
+		}
 }
