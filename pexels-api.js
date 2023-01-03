@@ -8,31 +8,46 @@ searchForm.addEventListener('submit', function(e){
 			// Typical action to be performed when the document is ready:
 			var res = JSON.parse(xhttp.responseText);
 			//JSON parses response text from api
-			// console.log(res);
+			console.log(res);
 			//selects photos object from res and returns each photo | 0-14 | total 15
 			var photoData = res.photos.map(function(photo){
-				console.log(photo)
-
+				// console.log(photo.photographer)
 				return photo
 			});
 
-			//no pixabay photographer name function
-			var photographerNameFn = function(name){
-				if(name !== 'Pixabay'){
-					return name;
-				} else if(name === 'Pixabay'){
-					var newName = 'Pixabay Photo';
-					return newName;
-				} else {
-					return '';
-				}
-			};
+			//photographer name to title case fn
+			var nameToTitleCase = function(name){
+				var arrName;
+				var firstName;
+				var secondName;
+					arrName = name.split('');
+					var indexZero = arrName[0];
+					var firstLetterCap = indexZero.toUpperCase();
+					var minusFirstLetterName = arrName.slice(1);
+					var spaceStarts = minusFirstLetterName.indexOf(' ');
+					console.log(spaceStarts);
+					//if spaceStarts === -1, then doesn't exist
+					//else spaceStarts is > 0, then it does exist
+					
+					// var firstName = firstLetterCap + minusFirstLetterName;
+					// console.log(firstName)
+					
+					//if arrName has a second name
+					// if(arrName.includes(' ')){
+					// 	var secondIndex = arrName.indexOf(' ');
+					// 	arrName[secondIndex + 1].toUpperCase();
+					// 	secondName = arrName.toString().replaceAll(',', '');
+					// 	console.log(secondName);
+					// }
 
-			//capitalize photographer name function
-			// var capitalizeNameFn = function(name){
-			// 	var arrName = name.split('');
-			// 	console.log(arrName);
-			// };
+					if(name === 'Pixabay'){
+						return 'Pixabay Photo';
+					} 
+					
+					//return both names
+					var fullName = firstName + secondName; 
+					// return fullName;
+			}
 
 			photoFeed.innerHTML = '';
 			photoData.forEach(function(photo) {
@@ -43,7 +58,7 @@ searchForm.addEventListener('submit', function(e){
 						<div class="hide">
 							<p id="photo-title" alt="Photo description">${photo.alt}</p>
 							<a href="${photo.photographer_url}" target="_blank"><ion-icon id="like-icon" name="heart-outline"></ion-icon></a>
-							<a href="${photo.photographer_url}" target="_blank"><p id="photographer-name" alt="Photographer name">${photographerNameFn(photographer)}</p></a>
+							<a href="${photo.photographer_url}" target="_blank"><p id="photographer-name" alt="Photographer name">${nameToTitleCase(photographer)}</p></a>
 							<a id="photo-link" href="${photo.url}" target="_blank" alt="See more photos from photos"><ion-icon name="open-outline" id="share-icon"></ion-icon></a>
 						</div>
 						<img class="pSize" src="${photo.src.portrait}">
