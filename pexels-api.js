@@ -16,37 +16,45 @@ searchForm.addEventListener('submit', function(e){
 			});
 
 			//photographer name to title case fn
+			//'edward zar' --> 'Edward Zar' --- 'E+(skip first letter + rest of first name) + Z(second index + rest of second name)
 			var nameToTitleCase = function(name){
-				var arrName;
-				var firstName;
-				var secondName;
-					arrName = name.split('');
-					var indexZero = arrName[0];
-					var firstLetterCap = indexZero.toUpperCase();
-					var minusFirstLetterName = arrName.slice(1);
-					var spaceStarts = minusFirstLetterName.indexOf(' ');
-					console.log(spaceStarts);
-					//if spaceStarts === -1, then doesn't exist
-					//else spaceStarts is > 0, then it does exist
-					
-					// var firstName = firstLetterCap + minusFirstLetterName;
-					// console.log(firstName)
-					
-					//if arrName has a second name
-					// if(arrName.includes(' ')){
-					// 	var secondIndex = arrName.indexOf(' ');
-					// 	arrName[secondIndex + 1].toUpperCase();
-					// 	secondName = arrName.toString().replaceAll(',', '');
-					// 	console.log(secondName);
-					// }
+					var fullName = name.split(' ');
+					console.log(fullName)
+					var firstName;
+					var lastName;
+					var middleName;
+					var firstNameCap;
+					var middleNameCap;
+					var lastNameCap;
 
-					if(name === 'Pixabay'){
-						return 'Pixabay Photo';
-					} 
-					
-					//return both names
-					var fullName = firstName + secondName; 
-					// return fullName;
+					if(fullName.length === 1){
+					//only one name in array
+						firstNameCap = fullName[0][0].toUpperCase();
+						firstName = firstNameCap + fullName[0].substring(1);
+						return firstName;
+					} else if(fullName.length === 2){
+					//first and last name in array
+					//first name
+						firstNameCap = fullName[0][0].toUpperCase();
+						firstName = firstNameCap + fullName[0].substring(1);
+					//last name
+						lastNameCap = fullName[1][0].toUpperCase();
+						lastName = lastNameCap + fullName[1].substring(1);
+						return `${firstName} ${lastName}`;
+					} else if(fullName.length === 3){
+					//first, middle, last name in array
+						//first name
+						firstNameCap = fullName[0][0].toUpperCase();
+						firstName = firstNameCap + fullName[0].substring(1);
+						//middle name
+						middleNameCap = fullName[1][0].toUpperCase();
+						middleName = middleNameCap + fullName[1].substring(1);
+						//last name
+						lastNameCap = fullName[1][0].toUpperCase();
+						lastName = lastNameCap + fullName[1].substring(1);
+						return `${firstName} ${middleName} ${lastName}`;
+					}
+
 			}
 
 			photoFeed.innerHTML = '';
