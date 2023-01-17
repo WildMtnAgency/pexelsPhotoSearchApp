@@ -179,6 +179,9 @@ input:focus {
 		font-size: 10px;
 		font-weight: 100;
 	}
+	.photo-div {
+		flex: 1 1 29%;
+	}
 	/* PHOTO FEATURE */
 	.photo-div p {
 		font-size: 10px;
@@ -191,20 +194,20 @@ input:focus {
 		}
 		#photographer-name {
 		position: absolute;
-		top: 92%;
+		top: 90%;
 		left: 5%;
 		}
 		#like-icon,
 		#share-icon {
 			position: absolute;
 			font-size: 12px;
-			left: 90%;
+			left: 87%;
 		}
 		#like-icon {
 			top: 6px;
 		}
 		#share-icon {
-			top: 93%;
+			top: 90%;
 		}
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -246,6 +249,9 @@ input:focus {
 	#search-icon {
 		font-size: 14px;
 		font-weight: 300;
+	}
+	.photo-div{
+		flex: 1 1 29%;
 	}
 	/* PHOTO FEATURE */
 	.photo-div p {
